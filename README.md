@@ -50,9 +50,10 @@ For our project, we focused on three queries: ``get_trakcs()``, ``get_artists()`
 
 The nature of ``get_playlist`` is similar to what is described above. However, instead of passing individual ``URIs``, the playlist itself has a ``Playlist URI`` which we can just pass once to get the necessary data.
 
-This is just a simplified explanation of what is actually going on. Feel free to dig into [``add_columns.ipynb``]() and [``get_playlist.ipynb``]() to see what is actually required to complete this task.
+This is just a simplified explanation of what is actually going on. Feel free to dig into [``add_columns.ipynb``](https://github.com/jbblancojr/Spotify_EDA_and_Clustering/blob/main/add_columns.ipynb) and [``get_playlist.ipynb``](https://github.com/jbblancojr/Spotify_EDA_and_Clustering/blob/main/get_playlist.ipynb) to see what is actually required to complete this task.
 
 ## Dataset
+After the API work is finished, we merge it with the existing Kaggle dataset and we're ready to get going.
 
 ## EDA Main Findings
 
