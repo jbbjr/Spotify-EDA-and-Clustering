@@ -17,7 +17,9 @@ Per Spotify Documentation, here's the definition of ``Track Popularity``
 The popularity of a track is a value between 0 and 100, with 100 being the most popular. The popularity is calculated by algorithm and is based, in the most part, on the total number of plays the track has had and how recent those plays are.
 Generally speaking, songs that are being played a lot now will have a higher popularity than songs that were played a lot in the past. Duplicate tracks (e.g. the same track from a single and an album) are rated independently. Artist and album popularity is derived mathematically from track popularity. Note: the popularity value may lag actual popularity by a few days: the value is not updated in real time.
 
-With this information and our goal in mind, we wanted to ask, **How can Track Popularity be utilized to create value for artists and Spotify stakeholders?**.
+*Another thing to keep in mind is that because ``Track Popularity`` is a live metric, the scope of the analysis is limited to what's making tracks popular right now.*
+
+With this information, scope, and our goal in mind, we wanted to ask: **How can Track Popularity be utilized to create value for artists and Spotify stakeholders?**.
 
 ## API Work
 
@@ -53,8 +55,12 @@ The nature of ``get_playlist`` is similar to what is described above. However, i
 This is just a simplified explanation of what is actually going on. Feel free to dig into [``add_columns.ipynb``](https://github.com/jbblancojr/Spotify_EDA_and_Clustering/blob/main/add_columns.ipynb) and [``get_playlist.ipynb``](https://github.com/jbblancojr/Spotify_EDA_and_Clustering/blob/main/get_playlist.ipynb) to see what is actually required to complete this task.
 
 ## Dataset
-After the API work is finished, we merge it with the existing Kaggle dataset and we're ready to get going.
+After the API work is finished, we merge it with the existing Kaggle dataset and we're ready to get going. Due to the nature of JSON objects, our dataset is semi-structured in nature and will require a fair amount of cleaning and transformations to derive any meaningful insights. In the [Jupyter Notebook](https://github.com/jbblancojr/Spotify_EDA_and_Clustering/blob/main/A01_Decoding_the_Secret_to_Popularity_Spotify.ipynb), you'll find an extensive dive into the dataset and the necesary steps it took to do so, but I'll spare the details here.
 
 ## EDA Main Findings
+There is a lot of summarization and distributions in the first half of the notebook to better understand individual varibles within the dataset. The true analysis starts in the latter half. 
+
+### Key Variables of Interest (Restating the Business Problem)
+Referring back to the Business Problem, we want to try and figure out what variables in the dataset are driving ``Track Popularity``. When we pulled the track object from the Spotify API, we got a bunch of other useful 
 
 ## Clustering
