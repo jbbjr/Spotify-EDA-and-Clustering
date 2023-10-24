@@ -5,9 +5,11 @@
 
 # Spotify EDA and Clustering
 
-**Statement of Work:** *This was a 7-week project for BA780, a course in the MSBA Program at Boston University, Questrom School of Business. The work completed her was done by a team of 6 (credited in the notebook). My main contributions were being a PM for the team, as well as performing ETL and working with the Spotify API to further build out the dataset.* 
+### **Statement of Work:** 
+*This was a 7-week project for BA780, a course in the MSBA Program at Boston University, Questrom School of Business. The work completed her was done by a team of 6 (credited in the notebook). My main contributions were being a PM for the team, as well as performing ETL and working with the Spotify API to further build out the dataset.* 
 
-**What's in Here:** In the ``README`` file, I'll provide a condensed version of the notebook and report the main findings and the EDA at a high level. Additionally, there are some ``plotly`` charts that are not visible in the notebook. To work around this issue, I'll paste the graphs relevant to our analysis in here.
+### **What's in Here:** 
+In the ``README`` file, I'll provide a condensed version of the notebook and report the main findings and the EDA at a high level. Additionally, there are some ``plotly`` charts that are not visible in the notebook. To work around this issue, I'll paste the graphs relevant to our analysis in here.
 
 ## Problem Statement
 The goal of this project was to try and understand *'What makes a song popular?'*. To do this we leveraged ``Track Popularity`` from the [Spotify API](https://developer.spotify.com/documentation/web-api).
@@ -43,7 +45,8 @@ To make things easier for people like us, theres a nice project called [Spotipy]
 For our project, we focused on three queries: ``get_trakcs()``, ``get_artists()`` and ``get_playlist()``. We wanted to add existing information to data we already had on a Kaggle Dataset of about ~20,000 Spotify tracks. Additionally, we wanted to collect data from a blend playlist that we created as a team, just for fun :). 
 
 **Here's How it Works:**
-- Each Spotify track has a unique identifier called ``URI`` ``(ex: spotify:track:3AIBCyWVRvGUuTkeszbi12)``
+- Each Spotify track has a unique identifier called ``URI``
+  - ``(ex: spotify:track:3AIBCyWVRvGUuTkeszbi12)``
 - For each URI in our dataset, we create a list of 50 ``URIs`` and pass them to ``get_tracks()``
 - ``get_tracks()`` takes the 50 tracks each iteration and will return a JSON object of all the data we're looking for that is related to a track.
 - The returned JSON object from ``get_tracks()`` contains an ``Artist URI``, which has some extra information on the specific Artist for a track
@@ -60,7 +63,14 @@ After the API work is finished, we merge it with the existing Kaggle dataset and
 ## EDA Main Findings
 There is a lot of summarization and distributions in the first half of the notebook to better understand individual varibles within the dataset. The true analysis starts in the latter half. 
 
+### Normalizing ``Track Popularity``
+When we checked the distribution for ``Track Popularity``, we found a right skew in the data. There are a lot of outliers on the unpopular side of things. Something unique about Spotify, is that pretty much anyone can upload a song. This is great in concept and in practice, but for our analysis it does make the data a little more noisy. Sometimes users on Spotify take advantage of this to post unreleased songs by real artists, or just to upload their own projects that aren't necesarilly production level. These are likely the tracks that represent the outliers, so it makes sense to just remove them altogether. We utilzed IQR to do this.
+
+
+
 ### Key Variables of Interest (Restating the Business Problem)
-Referring back to the Business Problem, we want to try and figure out what variables in the dataset are driving ``Track Popularity``. When we pulled the track object from the Spotify API, we got a bunch of other useful 
+Referring back to the Business Problem, we want to try and figure out what variables in the dataset are driving ``Track Popularity``. When we pulled the track object from the Spotify API, we got a bunch of other useful information. Each track contains specific audio features (ex. ``Danceability`` or ``Energy``) that we can use to analyze relationships with in terms of ``Track Popularity``.
+
+
 
 ## Clustering
