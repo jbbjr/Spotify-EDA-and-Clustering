@@ -63,13 +63,18 @@ After the API work is finished, we merge it with the existing Kaggle dataset and
 ## EDA Main Findings
 There is a lot of summarization and distributions in the first half of the notebook to better understand individual varibles within the dataset. The true analysis starts in the latter half. 
 
-### Normalizing ``Track Popularity``
+### Key Variables of Interest (Restating the Business Problem)
+Referring back to the Business Problem, we want to try and figure out what variables in the dataset are driving ``Track Popularity``. When we pulled the track object from the Spotify API, we got a bunch of other useful information. Each track contains specific audio features (ex. ``Danceability`` or ``Energy``) that we can use to analyze relationships with in terms of ``Track Popularity``. 
+
+### Steps of the Analysis
+The steps of our analysis were causal in the sense that one question led to the next. 
+
+#### Normalizing Track Popularity
 When we checked the distribution for ``Track Popularity``, we found a right skew in the data. There are a lot of outliers on the unpopular side of things. Something unique about Spotify, is that pretty much anyone can upload a song. This is great in concept and in practice, but for our analysis it does make the data a little more noisy. Sometimes users on Spotify take advantage of this to post unreleased songs by real artists, or just to upload their own projects that aren't necesarilly production level. These are likely the tracks that represent the outliers, so it makes sense to just remove them altogether. We utilzed IQR to do this.
 
+![](images/normalize.png)
 
-
-### Key Variables of Interest (Restating the Business Problem)
-Referring back to the Business Problem, we want to try and figure out what variables in the dataset are driving ``Track Popularity``. When we pulled the track object from the Spotify API, we got a bunch of other useful information. Each track contains specific audio features (ex. ``Danceability`` or ``Energy``) that we can use to analyze relationships with in terms of ``Track Popularity``.
+#### Does an Individual Feature Drive Track Popularity?
 
 
 
